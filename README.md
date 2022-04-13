@@ -1,4 +1,4 @@
-#Sales Rerationship
+# Sales Rerationship
 
 ## サイト概要
 社内での営業日報の共有とスケージュール管理ができるアプリケーション
