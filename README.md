@@ -1,24 +1,32 @@
-# README
+#Sales Rerationship
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+社内での営業日報の共有とスケージュール管理ができるアプリケーション
 
-Things you may want to cover:
+### サイトテーマ
+営業活動の効率化
+### テーマを選んだ理由
+営業職の経験があり社内で営業日報を共有することができれば効率的に営業活動ができるのではないかと思い作成いたしました。 過去の商談を参考にしたりスケージュール管理を一括で行うことができます。 営業の方の事務作業を少しでも軽減できればと思いこのテーマを選びました。
 
-* Ruby version
 
-* System dependencies
+### ターゲットユーザ
+SFAツール未導入の中小零細企業様。 営業活動をしている方々。
+### 主な利用シーン
+営業活動した企業様との日報を記録する時 社内で日報を共有する時 スケージュール管理をする時
 
-* Configuration
+## 設計書
+<...>
 
-* Database creation
+## チャレンジ要素一覧
+https://docs.google.com/spreadsheets/d/1CdU3tss6G2QfPWkEx5EZhjjDCyqAL7aESgmha8zwbJM/edit?usp=sharing
 
-* Database initialization
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 使用素材
+- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
+- 使用しない場合は、使用素材の項目をREADMEから削除してください。
