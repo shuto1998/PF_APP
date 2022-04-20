@@ -4,7 +4,7 @@ class CreateReports < ActiveRecord::Migration[6.1]
       t.integer :customer_id
       t.integer :corporate_id
       t.text :report_text 
-      t.string :resu
+      t.string :result
       
       t.timestamps
     end

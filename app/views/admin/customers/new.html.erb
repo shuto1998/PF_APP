@@ -1,0 +1,13 @@
+<h2>New Customer</h2>
+
+<%= form_with model: @customer, url: admin_customers_path, local: true do |f| %>
+  <div>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+  <div>
+    <%= f.label :password %>
+    <%=f.password_field :password %>
+  </div>
+  <%= f.submit %>
+<% end %>

@@ -1,24 +1,7 @@
 Rails.application.routes.draw do
-  namespace :admin do
-    get 'corporates/new'
-    get 'corporates/show'
-    get 'corporates/index'
-    get 'corporates/edit'
-  end
-  namespace :public do
-    get 'corporates/index'
-    get 'corporates/show'
-  end
-  namespace :admin do
-    get 'reports/index'
-    get 'reports/show'
-  end
-  namespace :public do
-    get 'reports/new'
-    get 'reports/show'
-    get 'reports/edit'
-    get 'reports/index'
-  end
+
+  root to: 'homes#index'
+  
   devise_for :admin, controllers: {
   registrations: "admin/registrations",
   sessions: "admin/sessions"
@@ -27,5 +10,17 @@ Rails.application.routes.draw do
   registrations: "public/registrations",
   sessions: 'public/sessions'
 }
+
+ scope module: :public do
+   resources :corporates,only:[:index,:show]
+   resources :reports,only:[:new,:create,:show,:edit,:update,:index]
+ end
+  namespace :admin do
+    resources :corporates,only:[:new,:create,:show,:edit,:update,:index]
+    resources :reports,only:[:shoe,:index]
+    resources :customers
+  end
+
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
