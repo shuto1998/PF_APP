@@ -17,7 +17,7 @@ Rails.application.routes.draw do
  end
   namespace :admin do
     resources :corporates,only:[:new,:create,:show,:edit,:update,:index]
-    resources :reports,only:[:shoe,:index]
+    resources :reports,only:[:show,:index]
     resources :customers
   end
 

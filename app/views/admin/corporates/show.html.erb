@@ -1,2 +1,58 @@
-<h1>Admin::Corporates#show</h1>
-<p>Find me in app/views/admin/corporates/show.html.erb</p>
+<h4><%= @corporate.name %>の詳細</h4>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-3">企業名</div>
+    <div class="col-lg-3"><%= @corporate.name %></div>
+    <div class="col-lg-3"></div>
+  </div>
+  <div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-3">年商</div>
+    <div class="col-lg-3"><%= @corporate.annual_saleses %>(百万)円</div>
+    <div class="col-lg-3"></div>
+  </div>
+  <div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-3">住所</div>
+    <div class="col-lg-3"><%= @corporate.address %></div>
+    <div class="col-lg-3"></div>
+  </div>
+  <div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-3">電話番号</div>
+    <div class="col-lg-3"><%= @corporate.phone_number %></div>
+    <div class="col-lg-3"></div>
+  </div>
+  <div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-3">従業員数</div>
+    <div class="col-lg-3"><%= @corporate.employees %>人</div>
+    <div class="col-lg-3"></div>
+  </div>
+  <div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-3">拠点数</div>
+    <div class="col-lg-3"><%= @corporate.bases %>ヶ所</div>
+    <div class="col-lg-3"></div>
+  </div>
+  <div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-3">ホームページ</div>
+    <div class="col-lg-3">
+      <% if @corporate.corporate_info.nil? %>
+        <%= @corporate.corporate_info %>
+      <% else %>
+        <%= raw Rinku.auto_link(h(@corporate.corporate_info)) %>
+      <% end %>
+      </div>
+    <div class="col-lg-3"></div>
+  </div>
+  <div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-3"></div>
+    <div class="col-lg-3"><%= link_to "編集する",edit_admin_corporate_path(@corporate.id) %></div>
+    <div class="col-lg-3"></div>
+  </div>
+</div>

@@ -10,7 +10,7 @@ class Admin::CustomersController < ApplicationController
   def create
     @customer = Customer.new(customer_params)
     if @customer.save
-      redirect_to admin_customers_path(customer.id)
+      redirect_to admin_customers_path(@customer.id)
     else
       render :new
     end
