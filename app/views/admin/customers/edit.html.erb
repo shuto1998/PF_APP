@@ -1,6 +1,5 @@
-<h2>社員登録</h2>
-
-<%= form_with model: @customer, url: admin_customers_path, local: true do |f| %>
+<h4><%= @customer.name %>さんの編集画面</h4>
+<%= form_with model: @customer,url: admin_customer_path do |f| %>
 <div class="container">
   <div class="row">
     <div class="col-lg-2"></div>
@@ -69,11 +68,11 @@
   <div class="row">
     <div class="col-lg-2"></div>
     <div class="col-lg-4">
-    <%= f.submit %>
+    <%= f.submit'編集完了' %>
     </div>
     <div class="col-lg-4">
     </div>
     <div class="col-lg-2"></div>
   </div>
 </div>
-  <% end %>
+<% end %>

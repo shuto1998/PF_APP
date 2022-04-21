@@ -1,8 +1,21 @@
-<h2>User Lists</h2>
-<ul>
+<h2>社員一覧</h2>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>名前</th>
+    <th>電話番号</th>
+    <th>メールアドレス</th>
+  </tr>
   <% @customers.each do |customer| %>
-    <li>
-      <%= customer.email %>
-    </li>
+  <tr>
+    <td><%= customer.id %></td>
+    <td><%= link_to customer.name, admin_customer_path(customer.id) %></td>
+    <td><%= customer.telephone_number %></td>
+    <td><%= customer.email %></td>
   <% end %>
-</ul>
+  </tr>
+
+</table>
+
+<%= link_to "社員登録",new_admin_customer_path %>
