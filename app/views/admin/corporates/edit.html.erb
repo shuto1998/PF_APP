@@ -1,2 +1,88 @@
-<h1>Admin::Corporates#edit</h1>
-<p>Find me in app/views/admin/corporates/edit.html.erb</p>
+<h4>企業編集</h4>
+<%= form_with model: @corporate,url: admin_corporate_path do |f| %>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-4">
+      <%= f.label :企業名 %>
+    </div>
+    <div class="col-lg-4">
+      <%= f.text_field :name %>
+    </div>
+    <div class="col-lg-2"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-4">
+      <%= f.label :フリガナ %>
+    </div>
+    <div class="col-lg-4">
+      <%= f.text_field :name_kana %>
+    </div>
+    <div class="col-lg-2"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-4">
+       <%= f.label :年商 %>
+    </div>
+    <div class="col-lg-4">
+      <%= f.text_field :annual_saleses %>
+    </div>
+    <div class="col-lg-2"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-4">
+     <%= f.label :住所 %>
+    </div>
+    <div class="col-lg-4">
+      <%= f.text_field :address %>
+    </div>
+    <div class="col-lg-2"></div>
+  </div>
+
+   <div class="row">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-4">
+    <%= f.label :電話番号 %>
+    </div>
+    <div class="col-lg-4">
+    <%= f.text_field :phone_number %>
+    </div>
+    <div class="col-lg-2"></div>
+  </div>
+   <div class="row">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-4">
+    <%= f.label :従業員数 %>
+    </div>
+    <div class="col-lg-4">
+    <%= f.text_field :employees %>
+    </div>
+    <div class="col-lg-2"></div>
+  </div>
+   <div class="row">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-4">
+    <%= f.label :ホームページ %>
+    </div>
+    <div class="col-lg-4">
+    <%= f.text_field :corporate_info %>
+    </div>
+    <div class="col-lg-2"></div>
+  </div>
+  <div class="row">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-4">
+    <%= f.submit'編集完了' %>
+    </div>
+    <div class="col-lg-4">
+    </div>
+    <div class="col-lg-2"></div>
+  </div>
+</div>
+<% end %>

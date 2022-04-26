@@ -55,6 +55,13 @@
     </div>
     <div class="col-lg-2"></div>
   </div>
+  <div class="row">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-4">会員ステータス</div>
+    <div class="col-lg-1"><%= f.radio_button :is_deleted, false %>在籍中</div>
+    <div class="col-lg-1"><%= f.radio_button :is_deleted, true  %>退職済</div>
+    <div class="col-lg-4"></div>
+  </div>
    <div class="row">
     <div class="col-lg-2"></div>
     <div class="col-lg-4">
@@ -70,9 +77,10 @@
     <div class="col-lg-4">
     <%= f.submit'編集完了' %>
     </div>
-    <div class="col-lg-4">
+    <%= link_to "退会する", admin_unsubscribe_path,class: 'btn btn-danger' %><div class="col-lg-4">
     </div>
     <div class="col-lg-2"></div>
   </div>
+
 </div>
 <% end %>

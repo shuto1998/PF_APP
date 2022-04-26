@@ -6,6 +6,7 @@
     <th>名前</th>
     <th>電話番号</th>
     <th>メールアドレス</th>
+    <th>ステータス</th>
   </tr>
   <% @customers.each do |customer| %>
   <tr>
@@ -13,6 +14,13 @@
     <td><%= link_to customer.name, admin_customer_path(customer.id) %></td>
     <td><%= customer.telephone_number %></td>
     <td><%= customer.email %></td>
+    <td>
+        <% if customer.is_deleted %>
+        退職済
+        <% else %>
+        在職中
+        <% end %>
+    </td>
   <% end %>
   </tr>
 

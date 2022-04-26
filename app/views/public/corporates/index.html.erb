@@ -1,2 +1,17 @@
-<h1>Public::Corporates#index</h1>
-<p>Find me in app/views/public/corporates/index.html.erb</p>
+<h4>企業一覧</h4>
+
+<table>
+  <tr>
+    <th>企業名</th>
+    <th>住所</th>
+    <th>電話番号</th>
+  </tr>
+<% @corporates.each do |corporate| %>
+  <tr>
+    <td><%= link_to corporate.name, corporate_path(corporate.id) %></td>
+    <td><%= corporate.address %></td>
+    <td><%= corporate.phone_number %></td>
+  </tr>
+   <% end %>
+
+</table>

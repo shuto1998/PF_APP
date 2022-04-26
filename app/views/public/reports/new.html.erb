@@ -1,2 +1,17 @@
-<h1>Public::Reports#new</h1>
-<p>Find me in app/views/public/reports/new.html.erb</p>
+<%= form_with model: @report,url: reports_path, local: true do |f| %>
+<%= f.label:企業名 %>
+<!--%= f.text_field :f.corporate.name %-->
+<div>
+  <%= f.label:内容 %>
+  <%= f.text_area :report_text %>
+</div>
+<div>
+  <%= f.label:結果 %>
+  <%= f.select :result, [['アポ取得',1], ['アポ未取得',2], ['日程調整中',3]] %>
+</div>
+<div>
+  <%= f.label:次回予定日 %>
+  <%= f.datetime_field :next %>
+</div>
+
+<% end %>
