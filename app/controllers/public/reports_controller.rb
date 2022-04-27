@@ -32,6 +32,6 @@ class Public::ReportsController < ApplicationController
   
   private
   def report_paramas
-    params.require(:report).permit(:report_text,:result)
+    params.require(:report).permit(:report_text,:result,:next)
   end
 end
