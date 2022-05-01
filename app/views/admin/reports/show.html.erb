@@ -1,2 +1,39 @@
-<h1>Admin::Reports#show</h1>
-<p>Find me in app/views/admin/reports/show.html.erb</p>
+<%= 日報詳細 %>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-3">企業名</div>
+    <div class="col-lg-3"></div>
+    <div class="col-lg-3"></div>
+  </div>
+  <div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-3">登録者</div>
+    <div class="col-lg-3"><%= @report.customer.name %></div>
+    <div class="col-lg-3"></div>
+  </div>
+  <div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-3">内容</div>
+    <div class="col-lg-3"><%= @report.report_text %></div>
+    <div class="col-lg-3"></div>
+  </div>
+  <div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-3">結果</div>
+    <div class="col-lg-3"><%= @report.result %></div>
+    <div class="col-lg-3"></div>
+  </div>
+  <div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-3">次回予定日</div>
+    <div class="col-lg-3"><%= @customer.next %></div>
+    <div class="col-lg-3"></div>
+  </div>
+  <div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-3"></div>
+    <div class="col-lg-3"><%= link_to "編集する",edit_report_path(@report.id) %></div>
+    <div class="col-lg-3"></div>
+  </div>
+</div>

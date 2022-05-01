@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_26_141528) do
+ActiveRecord::Schema.define(version: 2022_04_29_092429) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -93,6 +93,14 @@ ActiveRecord::Schema.define(version: 2022_04_26_141528) do
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
 
+  create_table "events", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.datetime "start_time"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "reports", force: :cascade do |t|
     t.integer "customer_id"
     t.integer "corporate_id"
@@ -100,6 +108,7 @@ ActiveRecord::Schema.define(version: 2022_04_26_141528) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "result"
+    t.datetime "next"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

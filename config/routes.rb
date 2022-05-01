@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
+  namespace :public do
+    get 'events/index'
+  end
   #root to: 'public/sessions#new'
-  root to: 'homes#index'
+  root to: 'public/events#index'
+  #root to: 'homes#index'
 
   devise_for :admin, controllers: {
   registrations: "admin/registrations",
@@ -12,9 +16,10 @@ Rails.application.routes.draw do
 }
 
  scope module: :public do
-   
+
    resources :corporates,only:[:index,:show]
    resources :reports,only:[:new,:create,:show,:edit,:update,:index]
+   resources :events
  end
   namespace :admin do
      get '/customers/unsubscribe' => 'admin/customers#unsubscribe', as: 'unsubscribe'
