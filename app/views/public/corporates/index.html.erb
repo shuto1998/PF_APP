@@ -1,6 +1,12 @@
 <h4>企業一覧</h4>
+<div>
+<%= form_tag(root_path, method: :get) do %>
+<%= text_field_tag :search %>
+<%= submit_tag '企業検索', name: nil %>
+<% end %>
+</div>
 
-<table>
+<table class="table">
   <tr>
     <th>企業名</th>
     <th>住所</th>

@@ -5,7 +5,7 @@
   
   <% events.each do |event| %>
     <div>
-      <%= event.title %>
+      <%= link_to event.title, event_path(event.id)%>
     </div>
   <% end %>
   

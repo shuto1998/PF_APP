@@ -16,6 +16,22 @@ class Public::EventsController < ApplicationController
     @event = Event.find_by(id: params[:id])
   end
 
+  def edit
+    @event = Event.find_by(id: params[:id])
+  end
+
+  def update
+    event = Event.find_by(id: params[:id])
+    event.update(event_parameter)
+    redirect_to event_path(event.id)
+  end
+  
+  def destroy
+    event = Event.find_by(id: params[:id])
+    event.destroy(event_parameter)
+    redirect_to events_path
+  end
+  
   private
 
   def event_parameter

@@ -1,0 +1,27 @@
+予定詳細
+<div class="container">
+    <div class="row">
+      <div class="col-lg-2"></div>
+      <div class="col-lg-4">企業名</div>
+      <div class="col-lg-4"><%= @event.title %></div>
+      <div class="col-lg-2"></div>
+    </div>
+    <div class="row">
+      <div class="col-lg-2"></div>
+      <div class="col-lg-4">日時</div>
+      <div class="col-lg-4"> <%= @event.start_time %></div>
+      <div class="col-lg-2"></div>
+    </div>
+    <div class="row">
+      <div class="col-lg-2"></div>
+      <div class="col-lg-4">商談内容</div>
+      <div class="col-lg-4"><%= @event.content %></div>
+      <div class="col-lg-2"></div>
+    </div>
+    <div class="row">
+     <div class="col-lg-2"></div>
+     <div class="col-lg-4"><%= link_to "編集する",edit_event_path(@event.id),class: 'btn btn-success' %></div>
+     <div class="col-lg-4"><%= link_to "予定削除",event_path(@event.id),method: :delete,class: 'btn btn-danger',"data-confirm" => "本当に削除しますか？" %></div>
+     <div class="col-lg-6"></div>
+    </div>
+</div>

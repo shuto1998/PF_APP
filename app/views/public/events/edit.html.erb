@@ -1,0 +1,33 @@
+予定編集
+<%= form_with model: @event,url: event_path do |f| %>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-4"><%= f.label :企業名 %></div>
+    <div class="col-lg-4"><%= f.text_field :title %></div>
+    <div class="col-lg-2"></div>
+  </div>
+  
+　<div class="row">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-4"><%= f.label :日時 %></div>
+    <div class="col-lg-4"><%= f.datetime_select :start_time %></div>
+    <div class="col-lg-2"></div>
+  </div>
+  
+  <div class="row">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-4"><%= f.label :内容 %></div>
+    <div class="col-lg-4"><%= f.text_field :content %></div>
+    <div class="col-lg-2"></div>
+  </div>
+  
+  <div class="row">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-4"><%= f.submit'編集完了' %></div>
+    <div class="col-lg-4"></div>
+    <div class="col-lg-2"></div>
+  </div>
+
+</div>
+<% end %>

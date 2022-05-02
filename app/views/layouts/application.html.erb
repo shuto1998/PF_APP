@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PfApp</title>
+    <title>SalesRerationship</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -12,7 +12,7 @@
 
   <body class="d-flex flex-column vh-100">
     <header class="shadow-sm">
-      <nav class="navbar navbar-expand-lg navbar-light">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-info">
         <div class="container">
           <a class="navbar-brand p-3" href="/">SalesRerationship</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
@@ -20,30 +20,31 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav navbar-dark ml-auto">
                 <% if customer_signed_in? %>
                 <li class="nav-item">
-                  <%= link_to "企業一覧", corporates_path, class: 'nav-link text-dark' %>
+                  <%= link_to "企業一覧", corporates_path, class: 'nav-link text-light' %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to "日報一覧", reports_path, class: 'nav-link text-dark' %>
+                  <%= link_to "日報一覧", reports_path, class: 'nav-link text-light' %>
                 </li>
                 <li class="nav-item">
-                 <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'nav-link text-dark' %>
+                 <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'nav-link text-light' %>
                 </li>
+
                 <% elsif admin_signed_in? %>
                 <li class="nav-item">
-                  <%= link_to "社員一覧",  admin_customers_path, class: 'nav-link text-dark' %>
+                  <%= link_to "社員一覧",  admin_customers_path, class: 'nav-link text-light' %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to "企業一覧",  admin_corporates_path, class: 'nav-link text-dark' %>
+                  <%= link_to "企業一覧",  admin_corporates_path, class: 'nav-link text-light' %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link text-dark' %>
+                  <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link ttext-light' %>
                 </li>
                 <% else %>
                 <li class="nav-item">
-                  <%= link_to "ログイン", new_customer_session_path, class: 'nav-link text-dark'%>
+                  <%= link_to "ログイン", new_customer_session_path, class: 'nav-link text-light'%>
                 </li>
               <% end %>
             </ul>
@@ -51,6 +52,17 @@
         </div>
       </nav>
     </header>
+    <main class="mb-auto">
     <%= yield %>
+    </main>
+    <footer class="bg-light text-dark pt-5 pb-4">
+      <div class="container">
+        <div class="row no-gutters">
+          <div class="col-md-4"></div>
+          <div class="col-md-4">SalesRerationship</div>
+          <div class="col-md-4"></div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
