@@ -1,12 +1,22 @@
-<%= link_to '予定追加', new_event_path %>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-11"></div>
+    <div class="col-lg-1">
+      <%= link_to new_event_path,class: 'btn btn-primary', method: :get do %>
+      <i class="fas fa-calendar-plus"></i>
+      <% end %>
+    </div>
+  </div>
 
-<%= month_calendar events: @events do |date, events| %>
+  <%= month_calendar events: @events do |date, events| %>
   <%= date.day %>
-  
+
   <% events.each do |event| %>
     <div>
       <%= link_to event.title, event_path(event.id)%>
     </div>
   <% end %>
-  
+
 <% end %>
+</div>
+

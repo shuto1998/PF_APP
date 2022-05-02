@@ -1,9 +1,12 @@
+
+<%= @report.corporate_id %>
 <%= form_with model: @report, local: true do |f| %>
 <div class="container">
     <div class="row">
       <div class="col-lg-2"></div>
       <div class="col-lg-4"><%= f.label:企業名 %></div>
-      <div class="col-lg-4"><!--%= f.text_field :f.corporate.name %--></div>
+      <div class="col-lg-4"><%= @corporate.name %></div>
+      <%= f.hidden_field :corporate_id %>
       <div class="col-lg-2"></div>
     </div>
     <div class="row">

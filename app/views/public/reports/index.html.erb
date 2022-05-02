@@ -1,22 +1,24 @@
 <h5>日報一覧</h5>
+<div class="container">
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>日時</th>
-      <th>登録者</th>
-      <th>最新コメント</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @reports.each do |report| %>
-    <tr>
-      <td><%= report.create_at %></td>
-      <td></td><!--登録者-->
-      <td></td><!--最新コメント-->
-      <td><%= link_to "日報を見る", report_path(report.id), class:'btn btn-success' %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>日時</th>
+        <th>登録者</th>
+        <th>最新コメント</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @reports.each do |report| %>
+      <tr>
+        <td><%= report.created_at %></td>
+        <td></td><!--登録者-->
+        <td></td><!--最新コメント-->
+        <td><%= link_to "日報を見る", report_path(report.id), class:'btn btn-success' %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
