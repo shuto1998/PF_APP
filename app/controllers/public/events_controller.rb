@@ -1,7 +1,7 @@
 class Public::EventsController < ApplicationController
   before_action :authenticate_customer!
   def index
-    @events = Event.all
+    @events = current_customer.events
   end
 
   def new
@@ -9,8 +9,14 @@ class Public::EventsController < ApplicationController
   end
 
   def create
-    Event.create(event_parameter)
-    redirect_to root_path
+    @event = Event.new(event_parameter)
+    @event.customer_id = current_customer.id
+    if @event.save
+     redirect_to root_path
+    else
+      @events = current_customer.events
+      render :index
+    end
   end
 
   def show
@@ -26,13 +32,13 @@ class Public::EventsController < ApplicationController
     event.update(event_parameter)
     redirect_to event_path(event.id)
   end
-  
+
   def destroy
     event = Event.find_by(id: params[:id])
-    event.destroy(event_parameter)
+    event.destroy
     redirect_to events_path
   end
-  
+
   private
 
   def event_parameter

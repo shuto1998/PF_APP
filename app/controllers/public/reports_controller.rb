@@ -38,7 +38,8 @@ class Public::ReportsController < ApplicationController
   end
 
   def destroy
-    @report.destroy
+    report = Report.find(params[:id])
+    report.destroy
     redirect_to new_report_path
   end
 
