@@ -18,7 +18,7 @@ Rails.application.routes.draw do
  scope module: :public do
 
    resources :corporates,only:[:index,:show]
-   resources :reports,only:[:new,:create,:show,:edit,:update,:index]
+   resources :reports
    resources :events
  end
   namespace :admin do

@@ -1,2 +1,39 @@
-<h1>Public::Reports#show</h1>
-<p>Find me in app/views/public/reports/show.html.erb</p>
+<h5>日報詳細</h5>
+<div class="container">
+    <div class="row">
+      <div class="col-lg-2"></div>
+      <div class="col-lg-4">企業名</div>
+      <div class="col-lg-4"><%= @report.corporate.name %></div>
+      <div class="col-lg-2"></div>
+    </div>
+    <div class="row">
+      <div class="col-lg-2"></div>
+      <div class="col-lg-4">登録者</div>
+      <div class="col-lg-4"> <%= @report.customer.name %></div>
+      <div class="col-lg-2"></div>
+    </div>
+    <div class="row">
+      <div class="col-lg-2"></div>
+      <div class="col-lg-4">内容</div>
+      <div class="col-lg-4"><%= @report.report_text %></div>
+      <div class="col-lg-2"></div>
+    </div>
+    <div class="row">
+      <div class="col-lg-2"></div>
+      <div class="col-lg-4">結果</div>
+      <div class="col-lg-4"><%= @result[@report.result] %></div>
+      <div class="col-lg-2"></div>
+    </div>
+    <div class="row">
+      <div class="col-lg-2"></div>
+      <div class="col-lg-4">次回予定日</div>
+      <div class="col-lg-4"><%= @report.next.to_s(:datetime_jp) %></div>
+      <div class="col-lg-2"></div>
+    </div>
+    <div class="row">
+     <div class="col-lg-2"></div>
+     <div class="col-lg-4"><%= link_to "編集する",edit_report_path(@report.id),class: 'btn btn-success' %></div>
+     <div class="col-lg-4"><%= link_to "日報削除",report_path(@report.id),method: :delete,class: 'btn btn-danger',"data-confirm" => "本当に削除しますか？" %></div>
+     <div class="col-lg-6"></div>
+    </div>
+</div>

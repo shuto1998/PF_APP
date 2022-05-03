@@ -1,2 +1,33 @@
-<h1>Public::Reports#edit</h1>
-<p>Find me in app/views/public/reports/edit.html.erb</p>
+日報編集
+<%= form_with model: @report,url: report_path do |f| %>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-4"><%= f.label :企業名 %></div>
+    <div class="col-lg-4"><%= @report.corporate.name %></div>
+    <div class="col-lg-2"></div>
+  </div>
+
+　<div class="row">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-4"><%= f.label :内容 %></div>
+    <div class="col-lg-4"><%= f.select :result, [['アポ取得',1], ['アポ未取得',2], ['日程調整中',3]] %></div>
+    <div class="col-lg-2"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-4"><%= f.label :次回予定日 %></div>
+    <div class="col-lg-4"><%= f.datetime_field :next %></div>
+    <div class="col-lg-2"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-4"><%= f.submit'編集完了' %></div>
+    <div class="col-lg-4"></div>
+    <div class="col-lg-2"></div>
+  </div>
+
+</div>
+<% end %>
