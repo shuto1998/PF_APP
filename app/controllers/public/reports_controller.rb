@@ -20,6 +20,7 @@ class Public::ReportsController < ApplicationController
   def show
     @report = Report.find(params[:id])
     @customer = @report.customer
+    @comment = Comment.new
     @result = {"1" => "アポ取得", "2" => "アポ未取得", "3" => "日程調整中"}
   end
 
@@ -41,7 +42,7 @@ class Public::ReportsController < ApplicationController
   end
 
   def index
-    @reports = Report.all
+    @reports = Report.page(params[:page])
   end
 
   def destroy

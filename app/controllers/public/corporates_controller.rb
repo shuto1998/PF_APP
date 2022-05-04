@@ -3,9 +3,9 @@ class Public::CorporatesController < ApplicationController
   def index
     
     if params[:search] == nil || ''
-      @corporates = Corporate.all
+      @corporates = Corporate.page(params[:page])
     elsif params[:search] == ''
-      @corporates = Corporate.all
+      @corporates = Corporate.page(params[:page])
     else
       @corporates = Corporate.where("body LIKE ?",'%' + params[:search] + '%')
     end

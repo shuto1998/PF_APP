@@ -5,6 +5,7 @@
     <thead>
       <tr>
         <th>日時</th>
+        <th>企業名</th>
         <th>登録者</th>
         <th>最新コメント</th>
         <th></th>
@@ -14,6 +15,7 @@
       <% @reports.each do |report| %>
       <tr>
         <td><%= report.created_at.to_s(:datetime_jp) %></td>
+        <td><%= report.corporate.name %></td>
         <td><%= report.customer.name %></td><!--登録者-->
         <td></td><!--最新コメント-->
         <td><%= link_to "日報を見る", report_path(report.id), class:'btn btn-success' %></td>

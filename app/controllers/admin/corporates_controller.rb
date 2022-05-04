@@ -17,7 +17,7 @@ class Admin::CorporatesController < ApplicationController
   end
 
   def index
-    @corporates = Corporate.all
+    @corporates = Corporate.page(params[:page])
   end
 
   def edit

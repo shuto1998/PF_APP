@@ -36,4 +36,17 @@
      <div class="col-lg-4"><%= link_to "日報削除",report_path(@report.id),method: :delete,class: 'btn btn-danger',"data-confirm" => "本当に削除しますか？" %></div>
      <div class="col-lg-6"></div>
     </div>
+    <div>
+      <p>コメント件数：<%= @report.comments.count %></p>
+      <% @report.comments.each do |comment| %>
+        <%= comment.customer.name %>
+        <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
+      <% end %>
+    </div>
+    <div>
+      <%= form_with model: [@report, @comment] do |f| %>
+        <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
+        <%= f.submit "送信する" %>
+      <% end %>
+    </div>
 </div>

@@ -18,8 +18,11 @@ Rails.application.routes.draw do
  scope module: :public do
 
    resources :corporates,only:[:index,:show]
-   resources :reports
+   resources :reports do
+    resources :comments,only:[:create]
+   end
    resources :events
+
  end
   namespace :admin do
      get '/customers/unsubscribe' => 'admin/customers#unsubscribe', as: 'unsubscribe'

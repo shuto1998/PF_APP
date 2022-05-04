@@ -41,7 +41,10 @@
                   <%= link_to "企業一覧",  admin_corporates_path, class: 'nav-link text-light' %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link ttext-light' %>
+                  <%= link_to "日報一覧", admin_reports_path, class: 'nav-link text-light' %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link text-light' %>
                 </li>
                 <% else %>
                 <li class="nav-item">

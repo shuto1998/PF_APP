@@ -6,6 +6,7 @@ gem 'devise'
 gem 'rinku'
 gem 'pry-rails'
 gem 'simple_calendar', '~> 2.0'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.5'
 # Use sqlite3 as the database for Active Record
@@ -57,3 +58,4 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'kaminari','~> 1.2.1'
