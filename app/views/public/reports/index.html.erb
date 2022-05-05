@@ -1,4 +1,12 @@
 <h5>日報一覧</h5>
+<% if @report.errors.any? %>
+  <%= @report.errors.count %>件のエラーが発生しました
+  <ul>
+    <% @report.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
 <div class="container">
 
   <table class="table table-striped table-bordered">

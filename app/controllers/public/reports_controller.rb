@@ -42,6 +42,7 @@ class Public::ReportsController < ApplicationController
   end
 
   def index
+    @report = Report.new
     @reports = Report.page(params[:page])
   end
 

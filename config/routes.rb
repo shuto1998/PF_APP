@@ -17,7 +17,9 @@ Rails.application.routes.draw do
 
  scope module: :public do
 
-   resources :corporates,only:[:index,:show]
+   resources :corporates,only:[:index,:show] do 
+       get :search, on: :collection
+    end
    resources :reports do
     resources :comments,only:[:create,:destroy]
    end

@@ -7,9 +7,17 @@ class Public::CorporatesController < ApplicationController
     elsif params[:search] == ''
       @corporates = Corporate.page(params[:page])
     else
-      @corporates = Corporate.where("body LIKE ?",'%' + params[:search] + '%')
+      @corporates = Corporate.where("name LIKE ?",'%' + params[:search] + '%')
     end
     
+  end
+  
+  def search
+    if params[:name].present?
+       @corporates = Corporate.where(name LIKE ?',"%#{params[:name]}%")
+    else
+      @corporates = Corporate.none
+    end
   end
 
   def show
