@@ -30,23 +30,46 @@
       <div class="col-lg-4"><%= @report.next.to_s(:datetime_jp) %></div>
       <div class="col-lg-2"></div>
     </div>
+
+    <div class="row">
+      <div class="col-lg-2"></div>
+      <div class="col-lg-4">
+        <p>コメント</p>
+       <% @report.comments.each do |comment| %>
+       <%= comment.customer.name %>
+       <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
+        <% if comment.customer == current_customer %>
+        <%= link_to "削除", report_comment_path(comment.report,comment), method: :delete %>
+        <% end %>
+       <% end %>
+      </div>
+      <div class="col-lg-6"></div>
+    </div>
+    <div class="row">
+      <div class="col-lg-2"></div>
+      <div class="col-lg-4">
+        <%= form_with model: [@report, @comment] do |f| %>
+        <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
+      </div>
+      <div class="col-lg-6"></div>
+    </div>
+    
+    <div class="row">
+      <div class="col-lg-2"></div>
+      <div class="col-lg-4">
+        <%= f.submit "送信する" %>
+      </div>
+      <div class="col-lg-4">
+
+      <% end %>
+      </div>
+      <div class="col-lg-2"></div>
+    </div>
+
     <div class="row">
      <div class="col-lg-2"></div>
-     <div class="col-lg-4"><%= link_to "編集する",edit_report_path(@report.id),class: 'btn btn-success' %></div>
+     <div class="col-lg-4"><%= link_to "日報編集",edit_report_path(@report.id),class: 'btn btn-success' %></div>
      <div class="col-lg-4"><%= link_to "日報削除",report_path(@report.id),method: :delete,class: 'btn btn-danger',"data-confirm" => "本当に削除しますか？" %></div>
      <div class="col-lg-6"></div>
-    </div>
-    <div>
-      <p>コメント件数：<%= @report.comments.count %></p>
-      <% @report.comments.each do |comment| %>
-        <%= comment.customer.name %>
-        <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
-      <% end %>
-    </div>
-    <div>
-      <%= form_with model: [@report, @comment] do |f| %>
-        <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
-        <%= f.submit "送信する" %>
-      <% end %>
     </div>
 </div>
