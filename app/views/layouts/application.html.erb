@@ -13,7 +13,7 @@
 
   <body class="d-flex flex-column vh-100">
     <header class="shadow-sm">
-      <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
           <a class="navbar-brand p-3" href="/">SalesRerationship</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
@@ -23,6 +23,9 @@
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav navbar-dark ml-auto">
                 <% if customer_signed_in? %>
+                <li class="nav-item">
+                  <%= current_customer.name %>としてログイン中
+                </li>
                 <li class="nav-item">
                   <%= link_to "企業一覧", corporates_path, class: 'nav-link text-light' %>
                 </li>

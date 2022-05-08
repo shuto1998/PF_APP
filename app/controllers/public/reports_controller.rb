@@ -46,6 +46,20 @@ class Public::ReportsController < ApplicationController
     @reports = Report.page(params[:page])
   end
 
+  def search
+    if params[:name].present?
+
+       corporates = Corporate.where('name LIKE ?',"%#{params[:name]}%")
+       corporate_ids = corporates.pluck(:id)
+       @reports = Report.where(corporate_id: corporate_ids).page(params[:page])
+    else
+      @reports = Report.none.page(params[:page])
+    end
+    @report = Report.new
+    render :index
+
+  end
+
   def destroy
     report = Report.find(params[:id])
     report.destroy

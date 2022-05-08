@@ -21,8 +21,9 @@ Rails.application.routes.draw do
        get :search, on: :collection
     end
    resources :reports do
+       get :search, on: :collection
+    end
     resources :comments,only:[:create,:destroy]
-   end
    resources :events
 
  end

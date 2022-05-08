@@ -1,23 +1,18 @@
 class Public::CorporatesController < ApplicationController
-  
+
   def index
-    
-    if params[:search] == nil || ''
       @corporates = Corporate.page(params[:page])
-    elsif params[:search] == ''
-      @corporates = Corporate.page(params[:page])
-    else
-      @corporates = Corporate.where("name LIKE ?",'%' + params[:search] + '%')
-    end
-    
   end
-  
+
   def search
     if params[:name].present?
-       @corporates = Corporate.where(name LIKE ?',"%#{params[:name]}%")
+    
+       @corporates = Corporate.where('name LIKE ?',"%#{params[:name]}%").page(params[:page])
     else
-      @corporates = Corporate.none
+      @corporates = Corporate.none.page(params[:page])
     end
+    render :index
+
   end
 
   def show
