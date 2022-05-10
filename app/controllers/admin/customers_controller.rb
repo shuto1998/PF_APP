@@ -2,18 +2,18 @@ class Admin::CustomersController < ApplicationController
     before_action :authenticate_admin!
 
   def unsubscribe
-    @customer = Customer.find_by(params[:id])
+    @customer = Customer.find(params[:id])
   end
 
   def withdrawal
-    @customer = Customer.find(customer.id)
+    @customer = Customer.find(params[:id])
     # is_deletedカラムをtrueに変更することにより削除フラグを立てる
     @customer.update(is_deleted: true)
     reset_session
     flash[:notice] = "退会処理を実行いたしました"
-    redirect_to root_path
+    redirect_to new_admin_session_path
   end
-  
+
   def index
     @customers = Customer.page(params[:page])
   end
@@ -38,10 +38,12 @@ class Admin::CustomersController < ApplicationController
   def edit
     @customer = Customer.find(params[:id])
   end
-  
+
    def update
     customer = Customer.find(params[:id])
     customer.update(customer_params)
+    puts customer.valid?
+    puts customer.invalid?
     redirect_to admin_customer_path(customer.id)
    end
 

@@ -17,19 +17,19 @@ Rails.application.routes.draw do
 
  scope module: :public do
 
-   resources :corporates,only:[:index,:show] do 
+   resources :corporates,only:[:index,:show] do
        get :search, on: :collection
     end
    resources :reports do
        get :search, on: :collection
-    end
     resources :comments,only:[:create,:destroy]
+    end
    resources :events
 
  end
   namespace :admin do
-     get '/customers/unsubscribe' => 'admin/customers#unsubscribe', as: 'unsubscribe'
-    patch '/customers/withdrawal' => 'admin/customers#withdrawal', as: 'withdrawal'
+     get '/customers/unsubscribe' => 'customers#unsubscribe', as: 'unsubscribe'
+    patch '/customers/withdrawal/:id' => 'customers#withdrawal', as: 'withdrawal'
     resources :corporates,only:[:new,:create,:show,:edit,:update,:index]
     resources :reports,only:[:show,:index]
     resources :customers

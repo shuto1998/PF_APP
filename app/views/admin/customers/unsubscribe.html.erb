@@ -21,8 +21,8 @@
  </div>
  <div class="row">
   <div class="col-lg-3"></div>
-  <div class="col-lg-3"><%= link_to "退会する", admin_withdrawal_path, class: 'btn btn-danger', method: :patch, "data-confirm" => "本当に削除しますか？"  %></div>
-  <div class="col-lg-3"><%= link_to "退会しない", edit_admin_customer(customer.id),class: 'btn btn-primary' %></div>
+  <div class="col-lg-3"><%= link_to "退会する", admin_withdrawal_path(id: @customer.id), class: 'btn btn-danger', method: :patch, "data-confirm" => "本当に削除しますか？"  %></div>
+  <div class="col-lg-3"><%= link_to "退会しない", edit_admin_customer_path(@customer.id),class: 'btn btn-primary' %></div>
   <div class="col-lg-3"></div>
  </div>
   </div>
