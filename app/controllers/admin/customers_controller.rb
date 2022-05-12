@@ -9,9 +9,9 @@ class Admin::CustomersController < ApplicationController
     @customer = Customer.find(params[:id])
     # is_deletedカラムをtrueに変更することにより削除フラグを立てる
     @customer.update(is_deleted: true)
-    reset_session
+    # reset_session
     flash[:notice] = "退会処理を実行いたしました"
-    redirect_to new_admin_session_path
+    redirect_to admin_customers_path
   end
 
   def index

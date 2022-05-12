@@ -2,9 +2,7 @@ Rails.application.routes.draw do
   namespace :public do
     get 'events/index'
   end
-  #root to: 'public/sessions#new'
   root to: 'public/events#index'
-  #root to: 'homes#index'
 
   devise_for :admin, controllers: {
   registrations: "admin/registrations",
