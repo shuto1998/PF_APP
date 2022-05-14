@@ -12,7 +12,7 @@ class Public::EventsController < ApplicationController
     @event = Event.new(event_parameter)
     @event.customer_id = current_customer.id
     if @event.save
-     redirect_to root_path
+      redirect_to root_path
     else
       @events = current_customer.events
       render :index

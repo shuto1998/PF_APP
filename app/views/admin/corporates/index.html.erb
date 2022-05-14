@@ -1,5 +1,9 @@
 <h4>企業一覧</h4>
 <div class="container">
+  <%= form_with url: search_corporates_path, method: :get, local: true do |f| %>
+  <%= f.text_field :name %>
+  <%= f.submit :企業検索 %>
+  <% end %>
   <div class="row">
     <div class="col-lg-3"></div>
     <div class="col-lg-3"></div>
@@ -23,7 +27,7 @@
       <td><%= corporate.phone_number %></td>
     </tr>
      <% end %>
-  
+
   </table>
   <div class="row">
     <div class="col-lg-4"></div>

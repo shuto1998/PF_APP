@@ -1,18 +1,16 @@
 class Public::CorporatesController < ApplicationController
-
   def index
-      @corporates = Corporate.page(params[:page])
+    @corporates = Corporate.page(params[:page])
   end
 
   def search
-    if params[:name].present?
-    
-       @corporates = Corporate.where('name LIKE ?',"%#{params[:name]}%").page(params[:page])
-    else
-      @corporates = Corporate.none.page(params[:page])
-    end
-    render :index
+    @corporates = if params[:name].present?
 
+                    Corporate.where('name LIKE ?', "%#{params[:name]}%").page(params[:page])
+                  else
+                    Corporate.none.page(params[:page])
+                  end
+    render :index
   end
 
   def show
@@ -20,7 +18,9 @@ class Public::CorporatesController < ApplicationController
   end
 
   private
+
   def corporate_params
-    params.require(:corporate).permit(:name,:name_kana,:annual_saleses,:industories,:employees,:bases,:corporate_info,:phone_number,:address)
+    params.require(:corporate).permit(:name, :name_kana, :annual_saleses, :industories, :employees, :bases, :corporate_info,
+                                      :phone_number, :address)
   end
 end

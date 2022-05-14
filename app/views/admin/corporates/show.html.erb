@@ -53,6 +53,6 @@
     <div class="col-lg-3"></div>
     <div class="col-lg-3"></div>
     <div class="col-lg-3"><%= link_to "編集する",edit_admin_corporate_path(@corporate.id) %></div>
-    <div class="col-lg-3"></div>
+    <div class="col-lg-3"><%= link_to "削除する",admin_corporate_path(@corporate.id),method: :delete,"data-confirm" => "本当に削除しますか？" %></div>
   </div>
 </div>

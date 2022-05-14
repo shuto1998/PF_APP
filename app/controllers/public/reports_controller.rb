@@ -21,15 +21,13 @@ class Public::ReportsController < ApplicationController
     @report = Report.find(params[:id])
     @customer = @report.customer
     @comment = Comment.new
-    @result = {"1" => "アポ取得", "2" => "アポ未取得", "3" => "日程調整中"}
+    @result = { '1' => 'アポ取得', '2' => 'アポ未取得', '3' => '日程調整中' }
   end
 
   def edit
     @report = Report.find(params[:id])
     @customer = @report.customer
-    if @customer != current_customer
-    redirect_to reports_path
-    end
+    redirect_to reports_path if @customer != current_customer
   end
 
   def update
@@ -49,15 +47,14 @@ class Public::ReportsController < ApplicationController
   def search
     if params[:name].present?
 
-       corporates = Corporate.where('name LIKE ?',"%#{params[:name]}%")
-       corporate_ids = corporates.pluck(:id)
-       @reports = Report.where(corporate_id: corporate_ids).page(params[:page])
+      corporates = Corporate.where('name LIKE ?', "%#{params[:name]}%")
+      corporate_ids = corporates.pluck(:id)
+      @reports = Report.where(corporate_id: corporate_ids).page(params[:page])
     else
       @reports = Report.none.page(params[:page])
     end
     @report = Report.new
     render :index
-
   end
 
   def destroy
@@ -75,6 +72,6 @@ class Public::ReportsController < ApplicationController
   # end
 
   def report_params
-    params.require(:report).permit(:report_text,:result,:next,:corporate_id)
+    params.require(:report).permit(:report_text, :result, :next, :corporate_id)
   end
 end
