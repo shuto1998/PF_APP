@@ -27,7 +27,11 @@
     <div class="row">
       <div class="col-lg-2"></div>
       <div class="col-lg-4">次回予定日</div>
-      <div class="col-lg-4"><%= @report.next.to_s(:datetime_jp) %></div>
+      <div class="col-lg-4">
+        <% if !@report.next.nil? %>
+        <%= @report.next.strftime("%Y年%m月%d日 %H:%M") %>
+        <% end %>
+        </div>
       <div class="col-lg-2"></div>
     </div>
 
@@ -38,7 +42,7 @@
 
        <% @report.comments.each do |comment| %>
        <%= comment.customer.name %>
-       <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
+       <%= comment.created_at.strftime("%Y年%m月%d日") %><%= comment.comment %>
         <% if comment.customer == current_customer %>
         <%= link_to "削除", report_comment_path(comment.report,comment), method: :delete %>
         <% end %>

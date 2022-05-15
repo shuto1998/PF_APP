@@ -60,7 +60,7 @@ class Public::ReportsController < ApplicationController
   def destroy
     report = Report.find(params[:id])
     report.destroy
-    redirect_to new_report_path
+    redirect_to reports_path
   end
 
   private
