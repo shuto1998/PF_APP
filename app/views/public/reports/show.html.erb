@@ -35,7 +35,7 @@
       <div class="col-lg-2"></div>
       <div class="col-lg-4">
         <p>コメント</p>
-        
+
        <% @report.comments.each do |comment| %>
        <%= comment.customer.name %>
        <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
@@ -54,7 +54,7 @@
       </div>
       <div class="col-lg-6"></div>
     </div>
-    
+
     <div class="row">
       <div class="col-lg-2"></div>
       <div class="col-lg-4">
@@ -71,6 +71,19 @@
      <div class="col-lg-2"></div>
      <div class="col-lg-4"><%= link_to "日報編集",edit_report_path(@report.id),class: 'btn btn-success' %></div>
      <div class="col-lg-4"><%= link_to "日報削除",report_path(@report.id),method: :delete,class: 'btn btn-danger',"data-confirm" => "本当に削除しますか？" %></div>
-     <div class="col-lg-6"></div>
+     <div class="col-lg-4"><% if @report.favorited_by?(current_customer) %>
+      <p>
+        <%= link_to report_favorites_path(@report), method: :delete do %>
+          ♥<%= @report.favorites.count %> いいね
+        <% end %>
+      </p>
+        <% else %>
+      <p>
+        <%= link_to report_favorites_path(@report), method: :post do %>
+          ♡<%= @report.favorites.count %> いいね
+        <% end %>
+      </p>
+      <% end %>
     </div>
+  </div>
 </div>

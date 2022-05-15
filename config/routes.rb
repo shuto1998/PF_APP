@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     end
     resources :reports do
       get :search, on: :collection
+      resource :favorites, only: %i[create destroy]
       resources :comments, only: %i[create destroy]
     end
     resources :events

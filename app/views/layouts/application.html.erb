@@ -27,7 +27,7 @@
             <ul class="navbar-nav navbar-dark ml-auto">
                 <% if customer_signed_in? %>
                 <li class="nav-item">
-                  <%= current_customer.name %>としてログイン中
+                  <span class='nav-link text-body'>お疲れ様です。<%= current_customer.name %>さん</span>
                 </li>
                 <li class="nav-item">
                   <%= link_to "スケジュール", public_events_index_path, class: 'nav-link text-light' %>
