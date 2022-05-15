@@ -113,9 +113,9 @@ ActiveRecord::Schema.define(version: 2022_05_15_055736) do
     t.integer "customer_id"
     t.integer "corporate_id"
     t.text "report_text"
+    t.string "result"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "result"
     t.datetime "next"
   end
 
