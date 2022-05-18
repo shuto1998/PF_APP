@@ -38,13 +38,13 @@ class Admin::CorporatesController < ApplicationController
     corporate.update(corporate_params)
     redirect_to admin_corporate_path(corporate.id)
   end
-  
+
   def destroy
     corporate = Corporate.find(params[:id])
     corporate.destroy
     redirect_to admin_corporates_path
-    
-  end 
+
+  end
 
   private
 

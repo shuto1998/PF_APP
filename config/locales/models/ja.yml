@@ -7,3 +7,31 @@ ja:
         report_text: 内容
         result: 結果
         next: 次回予定日
+ja:
+  activerecord:
+    models:
+      customer: 社員
+    attributes:
+      customer:
+        name: 名前
+        name_kana: フリガナ
+        email: メールアドレス
+        postal_code: 郵便番号
+        address: 住所
+        telephone_number: 電話番号
+
+ja:
+  activerecord:
+    models:
+      corporate: 企業
+    attributes:
+      corporate:
+        name: 企業名
+        name_kana: フリガナ
+        annual_saleses: 年商
+        address: 住所
+        telephone_number: 電話番号
+        employees: 従業員数
+        bases: 拠点数
+        phone_number: 電話番号
+

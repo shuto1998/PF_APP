@@ -1,13 +1,13 @@
 <h4>社員登録</h4>
 <% if @customer.errors.any? %>
-  <div id="error_explanation" class="alert alert-danger">
-    <ul>
-      <% @customer.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
+  <%= @customer.errors.count %>件のエラーが発生しました
+  <ul>
+    <% @customer.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
 <% end %>
+
 
 <%= form_with model: @customer, url: admin_customers_path, local: true do |f| %>
 <div class="container">
