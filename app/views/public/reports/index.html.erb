@@ -11,7 +11,7 @@
 
 <div class="container">
   <%= form_with url: search_reports_path, method: :get, local: true do |f| %>
-  <%= f.text_field :name %>
+  <%= f.text_field :name,:placeholder => "企業名で検索" %>
   <%= f.submit :日報検索 %>
   <% end %>
 

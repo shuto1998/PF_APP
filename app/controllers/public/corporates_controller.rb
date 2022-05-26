@@ -6,7 +6,7 @@ class Public::CorporatesController < ApplicationController
   def search
     @corporates = if params[:name].present?
 
-                    Corporate.where('name LIKE ?', "%#{params[:name]}%").page(params[:page])
+                    Corporate.where('name LIKE :param OR phone_number LIKE :param OR name_kana LIKE :param', param: "%#{params[:name]}%").page(params[:page])
                   else
                     Corporate.none.page(params[:page])
                   end
