@@ -20,8 +20,16 @@
     </div>
     <div class="row">
      <div class="col-lg-2"></div>
-     <div class="col-lg-4"><%= link_to "編集する",edit_event_path(@event.id),class: 'btn btn-success' %></div>
-     <div class="col-lg-4"><%= link_to "予定削除",event_path(@event.id),method: :delete,class: 'btn btn-danger',"data-confirm" => "本当に削除しますか？" %></div>
+     <div class="col-lg-4">
+       <% if @event.customer == current_customer %>
+       <%= link_to "編集する",edit_event_path(@event.id),class: 'btn btn-success' %>
+       <% end %>
+     </div>
+     <div class="col-lg-4">
+       <% if @event.customer == current_customer %>
+       <%= link_to "予定削除",event_path(@event.id),method: :delete,class: 'btn btn-danger',"data-confirm" => "本当に削除しますか？" %>
+       <% end %>
+     </div>
      <div class="col-lg-6"></div>
     </div>
 </div>

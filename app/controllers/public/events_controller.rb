@@ -21,6 +21,7 @@ class Public::EventsController < ApplicationController
 
   def show
     @event = Event.find_by(id: params[:id])
+    @customer = @event.customer
   end
 
   def edit
