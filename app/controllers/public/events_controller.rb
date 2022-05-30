@@ -1,5 +1,6 @@
 class Public::EventsController < ApplicationController
   before_action :authenticate_customer!
+  before_action :correct_customer, only: [:edit, :update,:destroy]
   def index
     @events = current_customer.events
   end
@@ -44,5 +45,11 @@ class Public::EventsController < ApplicationController
 
   def event_parameter
     params.require(:event).permit(:title, :content, :start_time)
+  end
+
+  def correct_customer
+    @event = Event.find(params[:id])
+    @customer = @event.user
+    redirect_to(events_path) unless @customer == current_customer
   end
 end

@@ -1,5 +1,6 @@
 class Public::ReportsController < ApplicationController
   before_action :authenticate_customer!
+  before_action :correct_customer, only: [:edit, :update,:destroy]
 
   def new
     @report = Report.new(corporate_id: params[:corporate_id])
@@ -73,5 +74,11 @@ class Public::ReportsController < ApplicationController
 
   def report_params
     params.require(:report).permit(:report_text, :result, :next, :corporate_id)
+  end
+
+  def correct_customer
+    @report = Report.find(params[:id])
+    @customer = @report.user
+    redirect_to(reports_path) unless @customer == current_customer
   end
 end
