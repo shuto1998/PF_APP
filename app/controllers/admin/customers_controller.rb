@@ -60,6 +60,6 @@ class Admin::CustomersController < ApplicationController
   private
 
   def customer_params
-    params.require(:customer).permit(:email, :password, :name, :name_kana, :address, :telephone_number)
+    params.require(:customer).permit(:email, :password, :name, :name_kana, :address, :telephone_number,:is_deleted)
   end
 end
