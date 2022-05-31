@@ -13,11 +13,8 @@ class Customer < ApplicationRecord
   end
 
   validates :name, presence: true
-  validates :name_kana, presence: true, format: {
-                   with: /\A[\p{katakana}　ー－&&[^ -~｡-ﾟ]]+\z/,
-                   message: "全角カタカナのみで入力して下さい"
-                 } 
-  validates :email, presence: true 
+  validates :name_kana, presence: true
+  validates :email, presence: true
   validates :address, presence: true
   validates :telephone_number, presence: true
 end
