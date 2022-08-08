@@ -13,7 +13,7 @@ class Customer < ApplicationRecord
   end
 
   validates :name, presence: true
-  validates :name_kana, presence: true
+  validates :name_kana,presence: true, format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/, message: 'はカタカナで入力して下さい。'}
   validates :email, presence: true
   validates :address, presence: true
   validates :telephone_number, presence: true
